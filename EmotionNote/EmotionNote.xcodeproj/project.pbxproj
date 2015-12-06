@@ -1,0 +1,699 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9A1CADC71C0FD1F6008A1AAE /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADC61C0FD1F6008A1AAE /* Note.swift */; };
+		9A1CADCF1C1170C6008A1AAE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADCE1C1170C5008A1AAE /* SwiftyJSON.swift */; };
+		9A1CADD61C11710F008A1AAE /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADD21C11710F008A1AAE /* Emotion.swift */; };
+		9A1CADD71C11710F008A1AAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADD31C11710F008A1AAE /* DataManager.swift */; };
+		9A1CADD81C11710F008A1AAE /* Face.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CADD41C11710F008A1AAE /* Face.json */; };
+		9A1CADD91C11710F008A1AAE /* Hebe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CADD51C11710F008A1AAE /* Hebe.jpg */; };
+		9A1CADED1C117174008A1AAE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; };
+		9A1CADEE1C117174008A1AAE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */; };
+		9A2D9BA71C0DED0000DB9D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */; };
+		9A2D9BA91C0DED0000DB9D5F /* EmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */; };
+		9A2D9BAC1C0DED0000DB9D5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D9BAA1C0DED0000DB9D5F /* Main.storyboard */; };
+		9A2D9BAF1C0DED0000DB9D5F /* EmotionNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BAD1C0DED0000DB9D5F /* EmotionNote.xcdatamodeld */; };
+		9A2D9BB11C0DED0000DB9D5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB01C0DED0000DB9D5F /* Assets.xcassets */; };
+		9A2D9BB41C0DED0000DB9D5F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D9BB21C0DED0000DB9D5F /* LaunchScreen.storyboard */; };
+		9A2D9BBF1C0DED0000DB9D5F /* EmotionNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BBE1C0DED0000DB9D5F /* EmotionNoteTests.swift */; };
+		9A2D9BCA1C0DED0000DB9D5F /* EmotionNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BC91C0DED0000DB9D5F /* EmotionNoteUITests.swift */; };
+		9A2D9BD91C0DF83000DB9D5F /* EmotionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */; };
+		9A2D9BDB1C0DF8F900DB9D5F /* EmotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9A1CADE31C11715A008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		9A1CADE51C11715A008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4DD67C0B1A5C55C900ED2280;
+			remoteInfo = "Alamofire OSX";
+		};
+		9A1CADE71C11715A008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E4202FE01B667AA100C997FB;
+			remoteInfo = "Alamofire watchOS";
+		};
+		9A1CADE91C11715A008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS Tests";
+		};
+		9A1CADEB1C11715A008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F829C6B21A7A94F100A2CD59;
+			remoteInfo = "Alamofire OSX Tests";
+		};
+		9A1CADEF1C117174008A1AAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = "Alamofire iOS";
+		};
+		9A2D9BBB1C0DED0000DB9D5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2D9B9B1C0DED0000DB9D5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A2D9BA21C0DED0000DB9D5F;
+			remoteInfo = EmotionNote;
+		};
+		9A2D9BC61C0DED0000DB9D5F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9A2D9B9B1C0DED0000DB9D5F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9A2D9BA21C0DED0000DB9D5F;
+			remoteInfo = EmotionNote;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9A1CADF11C117174008A1AAE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9A1CADEE1C117174008A1AAE /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9A1CADC61C0FD1F6008A1AAE /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		9A1CADCE1C1170C5008A1AAE /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		9A1CADD21C11710F008A1AAE /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
+		9A1CADD31C11710F008A1AAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		9A1CADD41C11710F008A1AAE /* Face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Face.json; sourceTree = "<group>"; };
+		9A1CADD51C11710F008A1AAE /* Hebe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hebe.jpg; sourceTree = "<group>"; };
+		9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-swift-2.0/Alamofire.xcodeproj"; sourceTree = "<group>"; };
+		9A1CADFE1C11B68A008A1AAE /* EmotionNote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmotionNote-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TPKeyboardAvoiding; sourceTree = "<group>"; };
+		9A2D9BA31C0DED0000DB9D5F /* EmotionNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController.swift; sourceTree = "<group>"; };
+		9A2D9BAB1C0DED0000DB9D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9A2D9BAE1C0DED0000DB9D5F /* EmotionNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EmotionNote.xcdatamodel; sourceTree = "<group>"; };
+		9A2D9BB01C0DED0000DB9D5F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9A2D9BB31C0DED0000DB9D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9A2D9BB51C0DED0000DB9D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A2D9BBA1C0DED0000DB9D5F /* EmotionNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2D9BBE1C0DED0000DB9D5F /* EmotionNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionNoteTests.swift; sourceTree = "<group>"; };
+		9A2D9BC01C0DED0000DB9D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A2D9BC51C0DED0000DB9D5F /* EmotionNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmotionNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A2D9BC91C0DED0000DB9D5F /* EmotionNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionNoteUITests.swift; sourceTree = "<group>"; };
+		9A2D9BCB1C0DED0000DB9D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionTableViewController.swift; sourceTree = "<group>"; };
+		9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9A2D9BA01C0DED0000DB9D5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A1CADED1C117174008A1AAE /* Alamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BB71C0DED0000DB9D5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BC21C0DED0000DB9D5F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9A1CADDC1C11715A008A1AAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A1CADE41C11715A008A1AAE /* Alamofire.framework */,
+				9A1CADE61C11715A008A1AAE /* Alamofire.framework */,
+				9A1CADE81C11715A008A1AAE /* Alamofire.framework */,
+				9A1CADEA1C11715A008A1AAE /* Alamofire iOS Tests.xctest */,
+				9A1CADEC1C11715A008A1AAE /* Alamofire OSX Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A2D9B9A1C0DED0000DB9D5F = {
+			isa = PBXGroup;
+			children = (
+				9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */,
+				9A2D9BA51C0DED0000DB9D5F /* EmotionNote */,
+				9A2D9BBD1C0DED0000DB9D5F /* EmotionNoteTests */,
+				9A2D9BC81C0DED0000DB9D5F /* EmotionNoteUITests */,
+				9A2D9BA41C0DED0000DB9D5F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9A2D9BA41C0DED0000DB9D5F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D9BA31C0DED0000DB9D5F /* EmotionNote.app */,
+				9A2D9BBA1C0DED0000DB9D5F /* EmotionNoteTests.xctest */,
+				9A2D9BC51C0DED0000DB9D5F /* EmotionNoteUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9A2D9BA51C0DED0000DB9D5F /* EmotionNote */ = {
+			isa = PBXGroup;
+			children = (
+				9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */,
+				9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */,
+				9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */,
+				9A1CADC61C0FD1F6008A1AAE /* Note.swift */,
+				9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */,
+				9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */,
+				9A1CADD21C11710F008A1AAE /* Emotion.swift */,
+				9A1CADD31C11710F008A1AAE /* DataManager.swift */,
+				9A1CADCE1C1170C5008A1AAE /* SwiftyJSON.swift */,
+				9A1CADD41C11710F008A1AAE /* Face.json */,
+				9A1CADD51C11710F008A1AAE /* Hebe.jpg */,
+				9A2D9BAA1C0DED0000DB9D5F /* Main.storyboard */,
+				9A2D9BB21C0DED0000DB9D5F /* LaunchScreen.storyboard */,
+				9A2D9BB51C0DED0000DB9D5F /* Info.plist */,
+				9A2D9BAD1C0DED0000DB9D5F /* EmotionNote.xcdatamodeld */,
+				9A2D9BB01C0DED0000DB9D5F /* Assets.xcassets */,
+				9A1CADFE1C11B68A008A1AAE /* EmotionNote-Bridging-Header.h */,
+			);
+			path = EmotionNote;
+			sourceTree = "<group>";
+		};
+		9A2D9BBD1C0DED0000DB9D5F /* EmotionNoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D9BBE1C0DED0000DB9D5F /* EmotionNoteTests.swift */,
+				9A2D9BC01C0DED0000DB9D5F /* Info.plist */,
+			);
+			path = EmotionNoteTests;
+			sourceTree = "<group>";
+		};
+		9A2D9BC81C0DED0000DB9D5F /* EmotionNoteUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D9BC91C0DED0000DB9D5F /* EmotionNoteUITests.swift */,
+				9A2D9BCB1C0DED0000DB9D5F /* Info.plist */,
+			);
+			path = EmotionNoteUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9A2D9BA21C0DED0000DB9D5F /* EmotionNote */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A2D9BCE1C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNote" */;
+			buildPhases = (
+				9A2D9B9F1C0DED0000DB9D5F /* Sources */,
+				9A2D9BA01C0DED0000DB9D5F /* Frameworks */,
+				9A2D9BA11C0DED0000DB9D5F /* Resources */,
+				9A1CADF11C117174008A1AAE /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A1CADF01C117174008A1AAE /* PBXTargetDependency */,
+			);
+			name = EmotionNote;
+			productName = EmotionNote;
+			productReference = 9A2D9BA31C0DED0000DB9D5F /* EmotionNote.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9A2D9BB91C0DED0000DB9D5F /* EmotionNoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A2D9BD11C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNoteTests" */;
+			buildPhases = (
+				9A2D9BB61C0DED0000DB9D5F /* Sources */,
+				9A2D9BB71C0DED0000DB9D5F /* Frameworks */,
+				9A2D9BB81C0DED0000DB9D5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A2D9BBC1C0DED0000DB9D5F /* PBXTargetDependency */,
+			);
+			name = EmotionNoteTests;
+			productName = EmotionNoteTests;
+			productReference = 9A2D9BBA1C0DED0000DB9D5F /* EmotionNoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9A2D9BC41C0DED0000DB9D5F /* EmotionNoteUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9A2D9BD41C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNoteUITests" */;
+			buildPhases = (
+				9A2D9BC11C0DED0000DB9D5F /* Sources */,
+				9A2D9BC21C0DED0000DB9D5F /* Frameworks */,
+				9A2D9BC31C0DED0000DB9D5F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9A2D9BC71C0DED0000DB9D5F /* PBXTargetDependency */,
+			);
+			name = EmotionNoteUITests;
+			productName = EmotionNoteUITests;
+			productReference = 9A2D9BC51C0DED0000DB9D5F /* EmotionNoteUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9A2D9B9B1C0DED0000DB9D5F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = yogayu.github.io;
+				TargetAttributes = {
+					9A2D9BA21C0DED0000DB9D5F = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 86YS7NFAB9;
+					};
+					9A2D9BB91C0DED0000DB9D5F = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 86YS7NFAB9;
+						TestTargetID = 9A2D9BA21C0DED0000DB9D5F;
+					};
+					9A2D9BC41C0DED0000DB9D5F = {
+						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 86YS7NFAB9;
+						TestTargetID = 9A2D9BA21C0DED0000DB9D5F;
+					};
+				};
+			};
+			buildConfigurationList = 9A2D9B9E1C0DED0000DB9D5F /* Build configuration list for PBXProject "EmotionNote" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9A2D9B9A1C0DED0000DB9D5F;
+			productRefGroup = 9A2D9BA41C0DED0000DB9D5F /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9A1CADDC1C11715A008A1AAE /* Products */;
+					ProjectRef = 9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				9A2D9BA21C0DED0000DB9D5F /* EmotionNote */,
+				9A2D9BB91C0DED0000DB9D5F /* EmotionNoteTests */,
+				9A2D9BC41C0DED0000DB9D5F /* EmotionNoteUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9A1CADE41C11715A008A1AAE /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 9A1CADE31C11715A008A1AAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A1CADE61C11715A008A1AAE /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 9A1CADE51C11715A008A1AAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A1CADE81C11715A008A1AAE /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 9A1CADE71C11715A008A1AAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A1CADEA1C11715A008A1AAE /* Alamofire iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire iOS Tests.xctest";
+			remoteRef = 9A1CADE91C11715A008A1AAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9A1CADEC1C11715A008A1AAE /* Alamofire OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Alamofire OSX Tests.xctest";
+			remoteRef = 9A1CADEB1C11715A008A1AAE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9A2D9BA11C0DED0000DB9D5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2D9BB41C0DED0000DB9D5F /* LaunchScreen.storyboard in Resources */,
+				9A2D9BB11C0DED0000DB9D5F /* Assets.xcassets in Resources */,
+				9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */,
+				9A1CADD91C11710F008A1AAE /* Hebe.jpg in Resources */,
+				9A1CADD81C11710F008A1AAE /* Face.json in Resources */,
+				9A2D9BAC1C0DED0000DB9D5F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BB81C0DED0000DB9D5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BC31C0DED0000DB9D5F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9A2D9B9F1C0DED0000DB9D5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2D9BDB1C0DF8F900DB9D5F /* EmotionTableViewCell.swift in Sources */,
+				9A2D9BAF1C0DED0000DB9D5F /* EmotionNote.xcdatamodeld in Sources */,
+				9A2D9BA91C0DED0000DB9D5F /* EmotionViewController.swift in Sources */,
+				9A2D9BD91C0DF83000DB9D5F /* EmotionTableViewController.swift in Sources */,
+				9A2D9BA71C0DED0000DB9D5F /* AppDelegate.swift in Sources */,
+				9A1CADCF1C1170C6008A1AAE /* SwiftyJSON.swift in Sources */,
+				9A1CADC71C0FD1F6008A1AAE /* Note.swift in Sources */,
+				9A1CADD71C11710F008A1AAE /* DataManager.swift in Sources */,
+				9A1CADD61C11710F008A1AAE /* Emotion.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BB61C0DED0000DB9D5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2D9BBF1C0DED0000DB9D5F /* EmotionNoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9A2D9BC11C0DED0000DB9D5F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A2D9BCA1C0DED0000DB9D5F /* EmotionNoteUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9A1CADF01C117174008A1AAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Alamofire iOS";
+			targetProxy = 9A1CADEF1C117174008A1AAE /* PBXContainerItemProxy */;
+		};
+		9A2D9BBC1C0DED0000DB9D5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A2D9BA21C0DED0000DB9D5F /* EmotionNote */;
+			targetProxy = 9A2D9BBB1C0DED0000DB9D5F /* PBXContainerItemProxy */;
+		};
+		9A2D9BC71C0DED0000DB9D5F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9A2D9BA21C0DED0000DB9D5F /* EmotionNote */;
+			targetProxy = 9A2D9BC61C0DED0000DB9D5F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9A2D9BAA1C0DED0000DB9D5F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A2D9BAB1C0DED0000DB9D5F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9A2D9BB21C0DED0000DB9D5F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9A2D9BB31C0DED0000DB9D5F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9A2D9BCC1C0DED0000DB9D5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9A2D9BCD1C0DED0000DB9D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9A2D9BCF1C0DED0000DB9D5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = EmotionNote/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmotionNote/EmotionNote-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9A2D9BD01C0DED0000DB9D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = EmotionNote/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNote;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EmotionNote/EmotionNote-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		9A2D9BD21C0DED0000DB9D5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionNoteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionNote.app/EmotionNote";
+			};
+			name = Debug;
+		};
+		9A2D9BD31C0DED0000DB9D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EmotionNoteTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmotionNote.app/EmotionNote";
+			};
+			name = Release;
+		};
+		9A2D9BD51C0DED0000DB9D5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EmotionNoteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNoteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EmotionNote;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		9A2D9BD61C0DED0000DB9D5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EmotionNoteUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = yogayu.github.io.EmotionNoteUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = EmotionNote;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9A2D9B9E1C0DED0000DB9D5F /* Build configuration list for PBXProject "EmotionNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2D9BCC1C0DED0000DB9D5F /* Debug */,
+				9A2D9BCD1C0DED0000DB9D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A2D9BCE1C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2D9BCF1C0DED0000DB9D5F /* Debug */,
+				9A2D9BD01C0DED0000DB9D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A2D9BD11C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2D9BD21C0DED0000DB9D5F /* Debug */,
+				9A2D9BD31C0DED0000DB9D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9A2D9BD41C0DED0000DB9D5F /* Build configuration list for PBXNativeTarget "EmotionNoteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9A2D9BD51C0DED0000DB9D5F /* Debug */,
+				9A2D9BD61C0DED0000DB9D5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9A2D9BAD1C0DED0000DB9D5F /* EmotionNote.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9A2D9BAE1C0DED0000DB9D5F /* EmotionNote.xcdatamodel */,
+			);
+			currentVersion = 9A2D9BAE1C0DED0000DB9D5F /* EmotionNote.xcdatamodel */;
+			path = EmotionNote.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 9A2D9B9B1C0DED0000DB9D5F /* Project object */;
+}
