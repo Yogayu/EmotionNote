@@ -39,13 +39,16 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             }
             */
         }
-        resultTextView.font = UIFont(name: "Avenir Next", size: 18)
-        resultTextView.textColor = UIColor.whiteColor()
-        resultTextView.textAlignment = NSTextAlignment.Center
-        
+        resultTextviewStyle()
+        preferredStatusBarStyle()
         
         hideHowDoYouFeelIfNeeded()
         checkEmptyNoteContent()
+    }
+    func resultTextviewStyle(){
+        resultTextView.font = UIFont(name: "Avenir Next", size: 18)
+        resultTextView.textColor = UIColor.whiteColor()
+        resultTextView.textAlignment = NSTextAlignment.Center
     }
     // MARK: Make the content show
     override func viewWillAppear(animated: Bool)  {
@@ -77,7 +80,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         contentTextField.resignFirstResponder()
     }
-
+    
+    
     // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
@@ -88,10 +92,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         emotionView.image = selectedImage
-        loadImgInfo(selectedImage)
+        loadImgInfo(emotionView.image!)
     
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
     // MARK: select Image
     
     @IBAction func selectImage(sender: UITapGestureRecognizer){
@@ -115,7 +120,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             
             if self.isCameraAvailable() && self.doesCameraSupportTakingPhotos(){
                 imagePickerController.sourceType = .Camera
-                imagePickerController.allowsEditing = true
+                imagePickerController.allowsEditing = false
                 imagePickerController.mediaTypes = [kUTTypeImage as NSString as String]
                 imagePickerController.delegate = self
                 self.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
@@ -291,6 +296,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                     }
                 }
                 // TODO: Add the result to the content
+                resultTextviewStyle()
                 resultTextView.text = result
                 print("hasFace is not null,it's \(hasFace)")
             }else
@@ -374,9 +380,9 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     
     // MARK: Upload image
     func loadImgInfo(uploadimage:UIImage){
-        
-        //
+        resultTextviewStyle()
         resultTextView.text = "I am tring to feel your emotion, please wait~ "
+        resultTextviewStyle()
         print("begin to upload image.")
         // init paramters Dictionary
         let parameters = [
