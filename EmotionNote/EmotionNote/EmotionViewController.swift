@@ -40,7 +40,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             */
         }
         resultTextView.font = UIFont(name: "Avenir Next", size: 18)
-        resultTextView.textColor = UIColor(red:0.227, green:0.552, blue:0.568, alpha:1)
+        resultTextView.textColor = UIColor.whiteColor()
         resultTextView.textAlignment = NSTextAlignment.Center
         
         
@@ -93,7 +93,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         dismissViewControllerAnimated(true, completion: nil)
     }
     // MARK: select Image
-    @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+    
+    @IBAction func selectImage(sender: UITapGestureRecognizer){
         // Hide the keyboard.
         contentTextField.resignFirstResponder()
         let imagePickerController = UIImagePickerController()
@@ -373,6 +374,10 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     
     // MARK: Upload image
     func loadImgInfo(uploadimage:UIImage){
+        
+        //
+        resultTextView.text = "I am tring to feel your emotion, please wait~ "
+        print("begin to upload image.")
         // init paramters Dictionary
         let parameters = [
             "entities" : "true",
@@ -383,7 +388,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         
         // CREATE AND SEND REQUEST
         let urlRequest = urlRequestWithComponents("https://api.projectoxford.ai/emotion/v1.0/recognize", parameters: parameters, imageData: imageData!)
-        print("begin to upload image.")
         Alamofire.upload(urlRequest.0, data: urlRequest.1)
             .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
                 //print("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")

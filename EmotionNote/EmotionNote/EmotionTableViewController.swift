@@ -22,6 +22,8 @@ class EmotionTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         
+        preferredStatusBarStyle()
+        
         if let savedNotes = loadNotes() {
             notes += savedNotes
         } else {
@@ -31,7 +33,7 @@ class EmotionTableViewController: UITableViewController {
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+        return .LightContent
     }
     func loadSampleNotes() {
         let photo1 = UIImage(named: "face1")!
