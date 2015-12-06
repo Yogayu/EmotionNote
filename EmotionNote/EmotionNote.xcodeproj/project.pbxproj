@@ -12,7 +12,6 @@
 		9A1CADD61C11710F008A1AAE /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADD21C11710F008A1AAE /* Emotion.swift */; };
 		9A1CADD71C11710F008A1AAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADD31C11710F008A1AAE /* DataManager.swift */; };
 		9A1CADD81C11710F008A1AAE /* Face.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CADD41C11710F008A1AAE /* Face.json */; };
-		9A1CADD91C11710F008A1AAE /* Hebe.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CADD51C11710F008A1AAE /* Hebe.jpg */; };
 		9A1CADED1C117174008A1AAE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; };
 		9A1CADEE1C117174008A1AAE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */; };
@@ -107,7 +106,6 @@
 		9A1CADD21C11710F008A1AAE /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		9A1CADD31C11710F008A1AAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9A1CADD41C11710F008A1AAE /* Face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Face.json; sourceTree = "<group>"; };
-		9A1CADD51C11710F008A1AAE /* Hebe.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Hebe.jpg; sourceTree = "<group>"; };
 		9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-swift-2.0/Alamofire.xcodeproj"; sourceTree = "<group>"; };
 		9A1CADFE1C11B68A008A1AAE /* EmotionNote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmotionNote-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TPKeyboardAvoiding; sourceTree = "<group>"; };
@@ -194,14 +192,13 @@
 				9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */,
 				9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */,
 				9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */,
-				9A1CADC61C0FD1F6008A1AAE /* Note.swift */,
 				9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */,
 				9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */,
+				9A1CADC61C0FD1F6008A1AAE /* Note.swift */,
 				9A1CADD21C11710F008A1AAE /* Emotion.swift */,
 				9A1CADD31C11710F008A1AAE /* DataManager.swift */,
 				9A1CADCE1C1170C5008A1AAE /* SwiftyJSON.swift */,
 				9A1CADD41C11710F008A1AAE /* Face.json */,
-				9A1CADD51C11710F008A1AAE /* Hebe.jpg */,
 				9A2D9BAA1C0DED0000DB9D5F /* Main.storyboard */,
 				9A2D9BB21C0DED0000DB9D5F /* LaunchScreen.storyboard */,
 				9A2D9BB51C0DED0000DB9D5F /* Info.plist */,
@@ -386,7 +383,6 @@
 				9A2D9BB41C0DED0000DB9D5F /* LaunchScreen.storyboard in Resources */,
 				9A2D9BB11C0DED0000DB9D5F /* Assets.xcassets in Resources */,
 				9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */,
-				9A1CADD91C11710F008A1AAE /* Hebe.jpg in Resources */,
 				9A1CADD81C11710F008A1AAE /* Face.json in Resources */,
 				9A2D9BAC1C0DED0000DB9D5F /* Main.storyboard in Resources */,
 			);

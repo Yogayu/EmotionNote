@@ -14,11 +14,13 @@ class EmotionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationItem.leftBarButtonItem = editButtonItem()
         
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         
         if let savedNotes = loadNotes() {
             notes += savedNotes
@@ -28,6 +30,9 @@ class EmotionTableViewController: UITableViewController {
         }
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return UIStatusBarStyle.LightContent
+    }
     func loadSampleNotes() {
         let photo1 = UIImage(named: "face1")!
         let note1 = Note(content: "What a wonderful day!", emotion: "How happy you are!", emotionPhoto: photo1, time: "15-12-03")!

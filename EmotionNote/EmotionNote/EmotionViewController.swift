@@ -38,8 +38,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 loadImgInfo(noteimage)
             }
             */
-            //
         }
+        resultTextView.font = UIFont(name: "Avenir Next", size: 18)
+        resultTextView.textColor = UIColor(red:0.227, green:0.552, blue:0.568, alpha:1)
+        resultTextView.textAlignment = NSTextAlignment.Center
+        
         
         hideHowDoYouFeelIfNeeded()
         checkEmptyNoteContent()
@@ -95,7 +98,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         contentTextField.resignFirstResponder()
         let imagePickerController = UIImagePickerController()
         
-        let chooseAWay:UIAlertController = UIAlertController(title: "WOW", message: "I can't see you clearly, Could you show me another face?", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let chooseAWay:UIAlertController = UIAlertController(title: "Choose a way", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
         // Choose from photo library
         let photoLib = UIAlertAction(title: "Choose from photo library", style: UIAlertActionStyle.Default){
             (action: UIAlertAction!) -> Void in
@@ -120,8 +124,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil)
-        chooseAWay.addAction(photoLib)
         chooseAWay.addAction(takePhoto)
+        chooseAWay.addAction(photoLib)
         chooseAWay.addAction(cancel)
         
         self.presentViewController(chooseAWay, animated: true, completion: nil)
@@ -242,10 +246,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         // I mean it!!
         if jsonNum > 0 {
             if let hasFace = json[0]["faceRectangle"]["top"].number{
-                var result = ""
-                var origArray:[String] = ["angry","contempt","disgust",
-                    "fear","happiness","neutral","sadness","surprise"]
-                let origArrayCopy = origArray
+                
                 /*
                 let faceRectangleTop = Double(json[0]["faceRectangle"]["top"].number!)
                 let faceRectangleLeft = Double(json[0]["faceRectangle"]["left"].number!)
@@ -261,48 +262,43 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 let sadness = Double(json[0]["scores"]["sadness"].number!)
                 let surprise = Double(json[0]["scores"]["surprise"].number!)
                 
-                origArray[0] = String(angry)
-                origArray[1] = String(contempt)
-                origArray[2] = String(disgust)
-                origArray[3] = String(fear)
-                origArray[4] = String(happiness)
-                origArray[5] = String(neutral)
-                origArray[6] = String(sadness)
-                origArray[7] = String(surprise)
+                var result = ""
+                var origArray:[String] = ["angry","contempt","disgust",
+                    "fear","happiness","neutral","sadness","surprise"]
+                let origArrayCopy = origArray
                 
                 var sortArray:[Double] = [angry,contempt,disgust,fear,happiness,neutral,sadness,surprise]
+                
+                // store origArray
+                for var i = 0; i<sortArray.count; i++ {
+                    origArray[i] = "\(sortArray[i])"
+                }
+                
                 sortArray = bubbolSort(sortArray)
                 
                 for var i = sortArray.count-1;i>=0; i-- {
                     for var j = origArray.count-1;j>=0;j-- {
                         if(String(sortArray[i]) == origArray[j]){
-//                            print("Array\(i):\(numArray[i])")
-//                            print("dic\(j):\(wellIamTest[j])")
                             print("numArray[\(i)] is equalwellIamTest[\(j)]")
                             print("numArray \(i) is \(origArrayCopy[j])")
                             if i == 7{
-                                result += "Your most strongest emotion is \(origArrayCopy[j])~\n"
+                                result += showFirEmotion("\(origArrayCopy[j])")
                             }else if i == 6{
-                                result += "And you fell a little \(origArrayCopy[j])"
+                                result += showSedEmotion("\(origArrayCopy[j])")
                             }
                         }
                     }
                 }
                 // TODO: Add the result to the content
                 resultTextView.text = result
-                
-//                if resultTextView.text.characters.count <= 0 {
-//                    contentTextField.text = ""
-//                }else{
-//                    
-//                }
                 print("hasFace is not null,it's \(hasFace)")
-            }else{
+            }else
+            {
                 print("Image size is invalid")
                 self.presentViewController(noFace, animated: true, completion: nil)
             }
-            
-        }else{
+        }else
+        {
             print("No face finding in the picture")
             self.presentViewController(noFace, animated: true, completion: nil)
         }
@@ -321,6 +317,60 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         }
         return array
     }
+    // Show the emotion
+    func showFirEmotion(let emo:String)->String{
+        var sentences:String = ""
+        let number = randomIn(min: 1, max: 5)
+        switch number {
+        case 1:
+            print("number 1")
+            sentences = "Your most strongest emotion is " + emo + "."
+        case 2:
+            print("number 2")
+            sentences = "You must feel very " + emo + "."
+        case 3:
+            print("number 3")
+            sentences = "I know you are in a " + emo + " mood."
+        case 4:
+            print("number 4")
+            sentences = "How " + emo + " you are now!"
+        case 5:
+            print("number 5")
+            sentences = "Do you enojy your " + emo + " emotion?"
+        default:
+            print("Wow, you caught me.")
+        }
+        return sentences
+    }
+    func showSedEmotion(let emo:String)->String{
+        var sentences:String = ""
+        let number = randomIn(min: 1, max: 5)
+        switch number {
+        case 1:
+            print("number 1")
+            sentences = "\nAnd you feel a little " + emo + "."
+        case 2:
+            print("number 2")
+            sentences = "\nAnd you feel a bit of " + emo + "."
+        case 3:
+            print("number 3")
+            sentences = "\nAnd you may also somehow in a " + emo + " mood."
+        case 4:
+            print("number 4")
+            sentences = "\nAnd it mix with some " + emo + " emotion."
+        case 5:
+            print("number 5")
+            sentences = "\nAnd you feel a little " + emo + "."
+        default:
+            print("Wow, you caught me.")
+        }
+        return sentences
+    }
+    
+    // TODO: Get Random number
+    func randomIn(min min: Int, max: Int) -> Int{
+        return Int(arc4random()) % (max - min + 1) + min}
+    
     // MARK: Upload image
     func loadImgInfo(uploadimage:UIImage){
         // init paramters Dictionary
