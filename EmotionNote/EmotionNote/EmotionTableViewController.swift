@@ -22,6 +22,8 @@ class EmotionTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: UIControlState.Normal)
         
+        navigationController?.navigationBar.titleTextAttributes = ([NSForegroundColorAttributeName : UIColor.whiteColor()])
+        
         preferredStatusBarStyle()
         
         if let savedNotes = loadNotes() {
@@ -40,10 +42,10 @@ class EmotionTableViewController: UITableViewController {
         let note1 = Note(content: "What a wonderful day!", emotion: "How happy you are!", emotionPhoto: photo1, time: "15-12-03")!
         
         let photo2 = UIImage(named: "face2")!
-        let note2 = Note(content: "I miss you so much.", emotion:"You look a little upset.",emotionPhoto: photo2, time: "15-12-02")!
+        let note2 = Note(content: "Havn't see you for a long time, I miss you so much.", emotion:"You look a little upset.",emotionPhoto: photo2, time: "15-12-02")!
         
         let photo3 = UIImage(named: "face3")!
-        let note3 = Note(content: "Should we have another dream?",emotion: "Everything is going ok, right?", emotionPhoto: photo3, time: "15-11-30")!
+        let note3 = Note(content: "It's a little outside, I am walking around alone.",emotion: "Everything is going ok, right?", emotionPhoto: photo3, time: "15-11-30")!
         notes += [note1,note2,note3]
     }
     
