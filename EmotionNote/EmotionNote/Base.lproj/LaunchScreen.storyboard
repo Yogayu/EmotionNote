@@ -14,15 +14,31 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="start3@2x" translatesAutoresizingMaskIntoConstraints="NO" id="cg5-Sd-Zl3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <animations/>
+                            </imageView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="cg5-Sd-Zl3" secondAttribute="trailing" id="5KA-3m-Wvo"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="cg5-Sd-Zl3" secondAttribute="bottom" id="DEJ-JU-gpQ"/>
+                            <constraint firstItem="cg5-Sd-Zl3" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="ouA-Zu-khE"/>
+                            <constraint firstItem="cg5-Sd-Zl3" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="v1J-wD-eop"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="start3@2x" width="621" height="1104"/>
+    </resources>
 </document>

@@ -296,18 +296,22 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                     }
                 }
                 // TODO: Add the result to the content
-                resultTextviewStyle()
                 resultTextView.text = result
+                resultTextviewStyle()
                 print("hasFace is not null,it's \(hasFace)")
             }else
             {
                 print("Image size is invalid")
                 self.presentViewController(noFace, animated: true, completion: nil)
+                resultTextView.text = "Send me a photo.\nI will tell you your emotion~ "
+                resultTextviewStyle()
             }
         }else
         {
             print("No face finding in the picture")
             self.presentViewController(noFace, animated: true, completion: nil)
+            resultTextView.text = "Send me a photo.\nI will tell you your emotion~ "
+            resultTextviewStyle()
         }
         
     }
