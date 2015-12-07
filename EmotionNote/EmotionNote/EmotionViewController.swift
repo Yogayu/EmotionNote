@@ -33,15 +33,15 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             resultTextView.text = note.emotion
             emotionView.image = note.emotionPhoto
             time = note.time
-            /*debug
+            //debug
             if let noteimage:UIImage = note.emotionPhoto {
-                loadImgInfo(noteimage)
+                ENService.loadImgInfo(noteimage) { (JSON) -> () in
+                    self.configureWithEmotion(JSON)}
             }
-            */
+            
         }
         resultTextviewStyle()
-        preferredStatusBarStyle()
-        
+       
         hideHowDoYouFeelIfNeeded()
         checkEmptyNoteContent()
     }
@@ -50,6 +50,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         resultTextView.textColor = UIColor.whiteColor()
         resultTextView.textAlignment = NSTextAlignment.Center
     }
+    
     // MARK: Make the content show
     override func viewWillAppear(animated: Bool)  {
         super.viewWillAppear(animated)
@@ -65,13 +66,16 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-    // MARK: hide the placeHolder
+    // MARK: Hide the placeHolder
     func textViewDidBeginEditing(textView: UITextView) {
-        saveButton.enabled = true
+        checkEmptyNoteContent()
         howDoUTextField.hidden = true
+    }
+    func textViewDidChange(textView: UITextView) {
+        checkEmptyNoteContent()
     }
     func textViewDidEndEditing(textView: UITextView) {
         howDoUTextField.hidden = true
@@ -82,7 +86,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     }
     
     
-    // MARK: UIImagePickerControllerDelegate
+//    // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
@@ -92,10 +96,47 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         emotionView.image = selectedImage
-        loadImgInfo(emotionView.image!)
-    
+        resultTextView.text = "I am tring to feel your emotion, please wait~ "
+        
+        resultTextviewStyle()
+        
+        ENService.loadImgInfo(emotionView.image!) { (JSON) -> () in
+            self.configureWithEmotion(JSON)
+        }
+        
         dismissViewControllerAnimated(true, completion: nil)
-    }
+   }
+//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+//        print("Picker returned successfully")
+//        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
+//        if let type:AnyObject = mediaType{
+//            if type is String{
+//                let stringType = type as! String
+//                if stringType == kUTTypeMovie as NSString{
+//                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
+//                    if let url = urlOfVideo{
+//                        print("Video URL = \(url)")
+//                    }
+//                }
+//                else if stringType == kUTTypeImage as NSString as NSString{
+//                    /* Let's get the metadata. This is only for images--not videos */
+//                    let metadata = info[UIImagePickerControllerMediaMetadata]
+//                        as? NSDictionary
+//                    if let theMetaData = metadata{
+//                        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+//                        if let theImage = image{
+//                            print("Image Metadata = \(theMetaData)")
+//                            print("Image = \(theImage)")
+//                            
+//                                emotionView.image = theImage
+//                                ENService.loadImgInfo(emotionView.image!) { (JSON) -> () in
+//                                        self.configureWithEmotion(JSON)
+//                                    }
+//                        } }
+//                }
+//            } }
+//        picker.dismissViewControllerAnimated(true, completion: nil)
+//    }
     
     // MARK: select Image
     
@@ -127,6 +168,10 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 self.presentViewController(imagePickerController, animated: true, completion: nil)
             }else{
                 print("Camera is not available")
+                let CameraIsnotAva = UIAlertController(title: "Check your camera", message: "Camera is not available", preferredStyle: UIAlertControllerStyle.Alert)
+             
+                self.presentViewController(CameraIsnotAva, animated: true, completion: nil)
+                
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil)
@@ -138,7 +183,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         
         
     }
-    // MARK: Using camera
+    // MARK: Check camera
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
@@ -157,7 +202,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             return cameraSupportsMedia(kUTTypeImage as NSString as String, sourceType: .Camera)
     }
     
-    // MARK: cancel
+    // MARK: Cancel
     @IBAction func cancel(sender: UIBarButtonItem) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
@@ -241,18 +286,15 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     // MARK:Face Emotion
     func configureWithEmotion(json: JSON) {
         let jsonNum = json.count
-        print("JSON String:\(jsonNum)")
+        
         
         let noFace:UIAlertController = UIAlertController(title: "WOW", message: "I can't see you clearly, Could you show me another face?", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
         noFace.addAction(okAction)
         
-        // Those code is written in a huarry,
-        // don't follow me!!
-        // I mean it!!
+        // Chenk if there has any face
         if jsonNum > 0 {
             if let hasFace = json[0]["faceRectangle"]["top"].number{
-                
                 /*
                 let faceRectangleTop = Double(json[0]["faceRectangle"]["top"].number!)
                 let faceRectangleLeft = Double(json[0]["faceRectangle"]["left"].number!)
@@ -270,35 +312,37 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 
                 var result = ""
                 var origArray:[String] = ["angry","contempt","disgust",
-                    "fear","happiness","neutral","sadness","surprise"]
+                    "fear","happy","neutral","sad","surprise"]
                 let origArrayCopy = origArray
                 
                 var sortArray:[Double] = [angry,contempt,disgust,fear,happiness,neutral,sadness,surprise]
                 
-                // store origArray
+                
                 for var i = 0; i<sortArray.count; i++ {
                     origArray[i] = "\(sortArray[i])"
                 }
                 
                 sortArray = bubbolSort(sortArray)
-                
+                // Change the emotion num to name
                 for var i = sortArray.count-1;i>=0; i-- {
                     for var j = origArray.count-1;j>=0;j-- {
-                        if(String(sortArray[i]) == origArray[j]){
-                            print("numArray[\(i)] is equalwellIamTest[\(j)]")
-                            print("numArray \(i) is \(origArrayCopy[j])")
-                            if i == 7{
+                        if(String(sortArray[i]) == origArray[j])
+                        {
+                            if i == 7
+                            {
                                 result += showFirEmotion("\(origArrayCopy[j])")
-                            }else if i == 6{
+                            }else if i == 6
+                            {
                                 result += showSedEmotion("\(origArrayCopy[j])")
                             }
                         }
-                    }
-                }
+                    }// end j
+                }// end i
+                
                 // TODO: Add the result to the content
                 resultTextView.text = result
                 resultTextviewStyle()
-                print("hasFace is not null,it's \(hasFace)")
+                print("Have faces, The top faceRectangle is \(hasFace)")
             }else
             {
                 print("Image size is invalid")
@@ -315,19 +359,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         }
         
     }
-    // TODO: Sort emotion. Well, just bubble sort
-    func bubbolSort(var array: [Double]) -> [Double] {
-        for var i = array.count-1;i>1; i-- {
-            for var j = 0;j < i;j++ {
-                if array[j] > array[j + 1] {
-                    let temp = array[j]
-                    array[j] = array[j+1]
-                    array[j+1] = temp
-                }
-            }
-        }
-        return array
-    }
+ 
     // Show the emotion
     func showFirEmotion(let emo:String)->String{
         var sentences:String = ""
@@ -376,57 +408,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             print("Wow, you caught me.")
         }
         return sentences
-    }
-    
-    // TODO: Get Random number
-    func randomIn(min min: Int, max: Int) -> Int{
-        return Int(arc4random()) % (max - min + 1) + min}
-    
-    // MARK: Upload image
-    func loadImgInfo(uploadimage:UIImage){
-        resultTextviewStyle()
-        resultTextView.text = "I am tring to feel your emotion, please wait~ "
-        resultTextviewStyle()
-        print("begin to upload image.")
-        // init paramters Dictionary
-        let parameters = [
-            "entities" : "true",
-            "faceRectangles": "true",
-        ]
-        let image = uploadimage
-        let imageData = UIImagePNGRepresentation(image)
-        
-        // CREATE AND SEND REQUEST
-        let urlRequest = urlRequestWithComponents("https://api.projectoxford.ai/emotion/v1.0/recognize", parameters: parameters, imageData: imageData!)
-        Alamofire.upload(urlRequest.0, data: urlRequest.1)
-            .progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                //print("\(totalBytesWritten) / \(totalBytesExpectedToWrite)")
-            }
-            .responseJSON {(_, _, data) -> Void in
-                let emotion = JSON(data.value ?? [])
-                debugPrint(emotion)
-                self.configureWithEmotion(emotion)
-        }
-    }
-    
-    // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
-    func urlRequestWithComponents(urlString:String, parameters:Dictionary<String, String>, imageData:NSData) -> (URLRequestConvertible, NSData) {
-        // create url request to send
-        let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
-        mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        mutableURLRequest.setValue("6e231ef52099425b90918984897ce508", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
-        mutableURLRequest.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
-
-        // create upload data to send
-        let uploadData = NSMutableData()
-        // add image
-        uploadData.appendData(imageData)
-        // add parameters
-        for (key, value) in parameters {
-            uploadData.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n\(value)".dataUsingEncoding(NSUTF8StringEncoding)!)
-        }
-        // return URLRequestConvertible and NSData
-        return (Alamofire.ParameterEncoding.URL.encode(mutableURLRequest, parameters: nil).0, uploadData)
     }
 }
 

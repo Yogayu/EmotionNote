@@ -24,6 +24,7 @@ class EmotionTableViewController: UITableViewController {
         
         navigationController?.navigationBar.titleTextAttributes = ([NSForegroundColorAttributeName : UIColor.whiteColor()])
         
+        
         preferredStatusBarStyle()
         
         if let savedNotes = loadNotes() {
@@ -39,14 +40,37 @@ class EmotionTableViewController: UITableViewController {
     }
     func loadSampleNotes() {
         let photo1 = UIImage(named: "face1")!
-        let note1 = Note(content: "What a wonderful day!", emotion: "How happy you are!", emotionPhoto: photo1, time: "15-12-03")!
+        let note1 = Note(content: "What a wonderful day! Having a nice meal with my friends.", emotion: "How happy you are now!\nAnd you feel a little neutral.", emotionPhoto: photo1, time: "15-12-06")!
         
         let photo2 = UIImage(named: "face2")!
-        let note2 = Note(content: "Havn't see you for a long time, I miss you so much.", emotion:"You look a little upset.",emotionPhoto: photo2, time: "15-12-02")!
+        let note2 = Note(content: "The ocean is peace and the wind is soft. I want to remember this moment.\nTruly feeling my happiness.\nSomeday I wll come back.", emotion:"Do you enjoy your happinedd emotion? And you feel a little neutral.",emotionPhoto: photo2, time: "15-12-06")!
         
         let photo3 = UIImage(named: "face3")!
-        let note3 = Note(content: "It's a little outside, I am walking around alone.",emotion: "Everything is going ok, right?", emotionPhoto: photo3, time: "15-11-30")!
-        notes += [note1,note2,note3]
+        let note3 = Note(content: "Where's is my mom? I couldn't find her anywhere. Why life is so annoying? Oh...",emotion: "It seems that you are angry.\nAnd you feel a little neutral.", emotionPhoto: photo3, time: "15-12-05")!
+        
+        let photo4 = UIImage(named: "face4")!
+        let note4 = Note(content: "Love me? Change me then we can be together forever.", emotion: "I know you are in a happy mood.\nAnd you feel a bit of netural.", emotionPhoto: photo4, time: "15-12-05")!
+        
+        let photo5 = UIImage(named: "face5")!
+        let note5 = Note(content: "What are you doing here? I am going to sleep. This my sweet dream.", emotion: "Do you enjoy your surprise emotion?\nAnd you feel a little fear.", emotionPhoto: photo5, time: "15-12-04")!
+        
+        let photo6 = UIImage(named: "face6")!
+        let note6 = Note(content: "Why? Why? Tell me why? Am I not so good? Am I saying too much? I don't want to break with you. I can't image the life without you.", emotion:"How sad you are now!\nAnd it mix with some neutral emotion.",emotionPhoto: photo6, time: "15-12-02")!
+        
+        let photo7 = UIImage(named: "face7")!
+        let note7 = Note(content: "Life is full of adventures. Find your dream and achieve it.",emotion: "You must feel very happy.\nAnd you may also somehow in a digust mood.", emotionPhoto: photo7, time: "15-12-04")!
+        
+        let photo8 = UIImage(named: "face8")!
+        let note8 = Note(content: "Power is everything.", emotion: "I know you are in a neutral mood.\nAnd you feel a little sad.", emotionPhoto: photo8, time: "15-12-03")!
+        
+        let photo9 = UIImage(named: "face9")!
+        let note9 = Note(content: "My dragon，why you take me there? I am the queen. I belong to somewehere else.", emotion:"I know you are in a neutral mood.\nAnd you feel a little sad. Dragon's mother~",emotionPhoto: photo9, time: "15-12-02")!
+        
+        let photo10 = UIImage(named: "face10")!
+        let note10 = Note(content: "See you at the star~",emotion: "You must feel very happy.\n", emotionPhoto: photo10, time: "15-12-01")!
+        
+        notes += [note1,note2,note3,note4,note5,note6,note7,note8,note9,note10]
+        
     }
     
     override func didReceiveMemoryWarning() {
