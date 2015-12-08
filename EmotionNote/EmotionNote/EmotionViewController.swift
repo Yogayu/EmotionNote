@@ -33,11 +33,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             resultTextView.text = note.emotion
             emotionView.image = note.emotionPhoto
             time = note.time
-            //debug
+            /*debug
             if let noteimage:UIImage = note.emotionPhoto {
                 ENService.loadImgInfo(noteimage) { (JSON) -> () in
                     self.configureWithEmotion(JSON)}
-            }
+            }*/
             
         }
         resultTextviewStyle()
