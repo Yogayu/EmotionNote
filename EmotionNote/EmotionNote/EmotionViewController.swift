@@ -106,37 +106,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         
         dismissViewControllerAnimated(true, completion: nil)
    }
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
-//        print("Picker returned successfully")
-//        let mediaType:AnyObject? = info[UIImagePickerControllerMediaType]
-//        if let type:AnyObject = mediaType{
-//            if type is String{
-//                let stringType = type as! String
-//                if stringType == kUTTypeMovie as NSString{
-//                    let urlOfVideo = info[UIImagePickerControllerMediaURL] as? NSURL
-//                    if let url = urlOfVideo{
-//                        print("Video URL = \(url)")
-//                    }
-//                }
-//                else if stringType == kUTTypeImage as NSString as NSString{
-//                    /* Let's get the metadata. This is only for images--not videos */
-//                    let metadata = info[UIImagePickerControllerMediaMetadata]
-//                        as? NSDictionary
-//                    if let theMetaData = metadata{
-//                        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-//                        if let theImage = image{
-//                            print("Image Metadata = \(theMetaData)")
-//                            print("Image = \(theImage)")
-//                            
-//                                emotionView.image = theImage
-//                                ENService.loadImgInfo(emotionView.image!) { (JSON) -> () in
-//                                        self.configureWithEmotion(JSON)
-//                                    }
-//                        } }
-//                }
-//            } }
-//        picker.dismissViewControllerAnimated(true, completion: nil)
-//    }
     
     // MARK: select Image
     

@@ -39,12 +39,13 @@ class EmotionTableViewController: UITableViewController {
         return .LightContent
     }
     func loadSampleNotes() {
+        /*
         let photo1 = UIImage(named: "face1")!
         let note1 = Note(content: "What a wonderful day! Having a nice meal with my friends.", emotion: "How happy you are now!\nAnd you feel a little neutral.", emotionPhoto: photo1, time: "15-12-06")!
         
         let photo2 = UIImage(named: "face2")!
         let note2 = Note(content: "The ocean is peace and the wind is soft. I want to remember this moment.\nTruly feeling my happiness.\nSomeday I wll come back.", emotion:"Do you enjoy your happinedd emotion? And you feel a little neutral.",emotionPhoto: photo2, time: "15-12-06")!
-        
+        */
         let photo3 = UIImage(named: "face3")!
         let note3 = Note(content: "Where's is my mom? I couldn't find her anywhere. Why life is so annoying? Oh...",emotion: "It seems that you are angry.\nAnd you feel a little neutral.", emotionPhoto: photo3, time: "15-12-05")!
         
@@ -69,7 +70,7 @@ class EmotionTableViewController: UITableViewController {
         let photo10 = UIImage(named: "face10")!
         let note10 = Note(content: "See you at the star~",emotion: "You must feel very happy.\n", emotionPhoto: photo10, time: "15-12-01")!
         
-        notes += [note1,note2,note3,note4,note5,note6,note7,note8,note9,note10]
+        notes += [note3,note4,note5,note6,note7,note8,note9,note10]
         
     }
     
