@@ -21,6 +21,9 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var howDoUTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
+    
+    @IBOutlet weak var selectImgView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,12 +60,14 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         // observe keyboard events
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+        
     }
     override func viewWillDisappear(animated: Bool)  {
         super.viewWillDisappear(animated)
         // remove keyboard observation
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object:nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillHideNotification, object:nil)
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -73,6 +78,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     func textViewDidBeginEditing(textView: UITextView) {
         checkEmptyNoteContent()
         howDoUTextField.hidden = true
+//        selectImgView.hidden = true;
+        
     }
     func textViewDidChange(textView: UITextView) {
         checkEmptyNoteContent()
@@ -86,7 +93,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     }
     
     
-//    // MARK: UIImagePickerControllerDelegate
+    // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismissViewControllerAnimated(true, completion: nil)
@@ -113,10 +120,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         // Hide the keyboard.
         contentTextField.resignFirstResponder()
         let imagePickerController = UIImagePickerController()
-        
+       
+        // Show alert
         let chooseAWay:UIAlertController = UIAlertController(title: "Choose a way", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        // Choose from photo library
+        // 1.Choose from photo library
         let photoLib = UIAlertAction(title: "Choose from photo library", style: UIAlertActionStyle.Default){
             (action: UIAlertAction!) -> Void in
             
@@ -124,7 +132,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             imagePickerController.delegate = self
             self.presentViewController(imagePickerController, animated: true, completion: nil)
         }
-        // Take a picture
+        // 2.Take a picture
         let takePhoto = UIAlertAction(title: "Take a picture", style: UIAlertActionStyle.Default){
             (action: UIAlertAction!) -> Void in
             
@@ -143,15 +151,16 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 
             }
         }
+        // 3. Cancel
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Destructive, handler: nil)
+        
         chooseAWay.addAction(takePhoto)
         chooseAWay.addAction(photoLib)
         chooseAWay.addAction(cancel)
         
         self.presentViewController(chooseAWay, animated: true, completion: nil)
-        
-        
     }
+    
     // MARK: Check camera
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
@@ -181,7 +190,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             navigationController!.popViewControllerAnimated(true)
         }
     }
-    
+    // Save note
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             
@@ -223,7 +232,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         let keyboardHeight = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width
         
         var contentInset = self.contentTextField.contentInset
-        let heightSpace:CGFloat = 30
+        let heightSpace:CGFloat = 25
         print(keyboardHeight)
         contentInset.bottom = keyboardHeight - heightSpace
         
