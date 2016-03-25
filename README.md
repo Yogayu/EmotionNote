@@ -24,5 +24,5 @@ Choose or take a photo of your face, the app will tell you your emotion.
 <img src = "http://7xle3b.com1.z0.glb.clouddn.com/emotionNoteFaceEmotion3.jpg">
 <img src="http://7xle3b.com1.z0.glb.clouddn.com/emotionNoteFaceEmotion4.jpg">
 
-** Please use your own [Key](https://www.projectoxford.ai/#) to upload image request.**
+**Please use your own [Key](https://www.projectoxford.ai/#) to upload image request.**
       
