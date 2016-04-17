@@ -24,6 +24,7 @@
 		9A2D9BCA1C0DED0000DB9D5F /* EmotionNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BC91C0DED0000DB9D5F /* EmotionNoteUITests.swift */; };
 		9A2D9BD91C0DF83000DB9D5F /* EmotionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */; };
 		9A2D9BDB1C0DF8F900DB9D5F /* EmotionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */; };
+		9A34607A1CC265C500AB17E8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3460791CC265C500AB17E8 /* Utils.swift */; };
 		9A9482761C15BD3D00A4BE80 /* ENService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9482751C15BD3D00A4BE80 /* ENService.swift */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +124,7 @@
 		9A2D9BCB1C0DED0000DB9D5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A2D9BD81C0DF83000DB9D5F /* EmotionTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionTableViewController.swift; sourceTree = "<group>"; };
 		9A2D9BDA1C0DF8F900DB9D5F /* EmotionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionTableViewCell.swift; sourceTree = "<group>"; };
+		9A3460791CC265C500AB17E8 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9A9482751C15BD3D00A4BE80 /* ENService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -188,8 +190,9 @@
 		9A2D9BA51C0DED0000DB9D5F /* EmotionNote */ = {
 			isa = PBXGroup;
 			children = (
+				9A3460781CC2659B00AB17E8 /* Helpers */,
+				9A3460731CC263AF00AB17E8 /* Application */,
 				9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */,
-				9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */,
 				9ADCE16E1CA125AC003E6820 /* Model */,
 				9ADCE16D1CA1259B003E6820 /* Cell */,
 				9ADCE1681CA12582003E6820 /* Controller */,
@@ -220,6 +223,22 @@
 				9A2D9BCB1C0DED0000DB9D5F /* Info.plist */,
 			);
 			path = EmotionNoteUITests;
+			sourceTree = "<group>";
+		};
+		9A3460731CC263AF00AB17E8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		9A3460781CC2659B00AB17E8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9A3460791CC265C500AB17E8 /* Utils.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9ADCE1681CA12582003E6820 /* Controller */ = {
@@ -444,6 +463,7 @@
 				9A2D9BA91C0DED0000DB9D5F /* EmotionViewController.swift in Sources */,
 				9A2D9BD91C0DF83000DB9D5F /* EmotionTableViewController.swift in Sources */,
 				9A2D9BA71C0DED0000DB9D5F /* AppDelegate.swift in Sources */,
+				9A34607A1CC265C500AB17E8 /* Utils.swift in Sources */,
 				9A1CADCF1C1170C6008A1AAE /* SwiftyJSON.swift in Sources */,
 				9A1CADC71C0FD1F6008A1AAE /* Note.swift in Sources */,
 				9A9482761C15BD3D00A4BE80 /* ENService.swift in Sources */,

@@ -10,12 +10,14 @@ import UIKit
 import Alamofire
 import MobileCoreServices
 
-class EmotionViewController: UIViewController,UITextViewDelegate,
+class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDelegate,
     UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-    // MARK: Properties
+
     var note: Note?
     var emotion:JSON?
     var time:String = ""
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emotionView: UIImageView!
     @IBOutlet weak var contentTextField: UITextView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -36,11 +38,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             resultTextView.text = note.emotion
             emotionView.image = note.emotionPhoto
             time = note.time
-            /*debug
+            //debug
             if let noteimage:UIImage = note.emotionPhoto {
                 ENService.loadImgInfo(noteimage) { (JSON) -> () in
                     self.configureWithEmotion(JSON)}
-            }*/
+            }
             
         }
         resultTextviewStyle()
@@ -57,16 +59,10 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     // MARK: Make the content show
     override func viewWillAppear(animated: Bool)  {
         super.viewWillAppear(animated)
-        // observe keyboard events
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
     }
     override func viewWillDisappear(animated: Bool)  {
         super.viewWillDisappear(animated)
-        // remove keyboard observation
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillShowNotification, object:nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name:UIKeyboardWillHideNotification, object:nil)
         
     }
     override func didReceiveMemoryWarning() {
@@ -74,12 +70,13 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         
     }
     
-    // MARK: Hide the placeHolder
+    // MARK:
     func textViewDidBeginEditing(textView: UITextView) {
+        // TODO: Hide the placeHolder
         checkEmptyNoteContent()
         howDoUTextField.hidden = true
-//        selectImgView.hidden = true;
         
+        scrollView.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
     }
     func textViewDidChange(textView: UITextView) {
         checkEmptyNoteContent()
@@ -91,7 +88,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         contentTextField.resignFirstResponder()
     }
-    
     
     // MARK: UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -115,7 +111,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
    }
     
     // MARK: select Image
-    
     @IBAction func selectImage(sender: UITapGestureRecognizer){
         // Hide the keyboard.
         contentTextField.resignFirstResponder()
@@ -190,7 +185,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
             navigationController!.popViewControllerAnimated(true)
         }
     }
-    // Save note
+    // MARK: Save note
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             
@@ -221,50 +216,9 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         }
     }
     
-    // MARK:keyboard notifications
-    func keyboardWillShow(notification: NSNotification) {
-        
-        let frameValue = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        let keyboardFrame = frameValue.CGRectValue()
-        let animationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        
-        let isPortrait = UIDeviceOrientationIsPortrait(UIDevice.currentDevice().orientation)
-        let keyboardHeight = isPortrait ? keyboardFrame.size.height : keyboardFrame.size.width
-        
-        var contentInset = self.contentTextField.contentInset
-        let heightSpace:CGFloat = 25
-        print(keyboardHeight)
-        contentInset.bottom = keyboardHeight - heightSpace
-        
-        var scrollIndicatorInsets = self.contentTextField.scrollIndicatorInsets
-        scrollIndicatorInsets.bottom = keyboardHeight - heightSpace
-        
-        UIView.animateWithDuration(animationDuration.doubleValue, animations:({
-            self.contentTextField.contentInset = contentInset
-            self.contentTextField.scrollIndicatorInsets = scrollIndicatorInsets
-        })
-        )
-    }
-    func keyboardWillHide(notification: NSNotification) {
-        let animationDuration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! NSNumber
-        
-        var contentInset = self.contentTextField.contentInset
-        contentInset.bottom = 0
-        
-        var scrollIndicatorInsets = self.contentTextField.scrollIndicatorInsets
-        scrollIndicatorInsets.bottom = 0
-        
-        UIView.animateWithDuration(animationDuration.doubleValue, animations:({
-            self.contentTextField.contentInset = contentInset
-            self.contentTextField.scrollIndicatorInsets = scrollIndicatorInsets
-        })
-        )
-    }
-    
     // MARK:Face Emotion
     func configureWithEmotion(json: JSON) {
         let jsonNum = json.count
-        
         
         let noFace:UIAlertController = UIAlertController(title: "WOW", message: "I can't see you clearly, Could you show me another face?", preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
@@ -295,7 +249,6 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                 
                 var sortArray:[Double] = [angry,contempt,disgust,fear,happiness,neutral,sadness,surprise]
                 
-                
                 for var i = 0; i<sortArray.count; i++ {
                     origArray[i] = "\(sortArray[i])"
                 }
@@ -314,20 +267,20 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
                                 result += showSedEmotion("\(origArrayCopy[j])")
                             }
                         }
-                    }// end j
-                }// end i
+                    } // end j
+                } // end i
                 
                 // TODO: Add the result to the content
                 resultTextView.text = result
                 resultTextviewStyle()
                 print("Have faces, The top faceRectangle is \(hasFace)")
             }else
-            {
+                {
                 print("Image size is invalid")
                 self.presentViewController(noFace, animated: true, completion: nil)
                 resultTextView.text = "Send me a photo.\nI will tell you your emotion~ "
                 resultTextviewStyle()
-            }
+                }
         }else
         {
             print("No face finding in the picture")
@@ -338,7 +291,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,
         
     }
  
-    // Show the emotion
+    // MARK:Show the emotion
     func showFirEmotion(let emo:String)->String{
         var sentences:String = ""
         let number = randomIn(min: 1, max: 5)

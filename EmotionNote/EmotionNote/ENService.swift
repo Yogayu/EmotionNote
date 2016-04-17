@@ -9,26 +9,6 @@
 import UIKit
 import Alamofire
 
-// TODO: Get Random number
-func randomIn(min min: Int, max: Int) -> Int{
-    return Int(arc4random()) % (max - min + 1) + min}
-// TODO: Sort emotion. Well, just bubble sort
-func bubbolSort(var array: [Double]) -> [Double] {
-    for var i = array.count-1;i>1; i--
-    {
-        for var j = 0;j < i;j++
-        {
-            if array[j] > array[j + 1]
-            {
-                let temp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = temp
-            }
-        }
-    }
-    return array
-}
-
 struct ENService {
     // MARK: Upload image
     static func loadImgInfo(uploadimage:UIImage,response:(JSON)->()){
@@ -55,12 +35,15 @@ struct ENService {
         }
     }
     
-    // this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
+    
+    /**
+    this function creates the required URLRequestConvertible and NSData we need to use Alamofire.upload
+    */
     static func urlRequestWithComponents(urlString:String, parameters:Dictionary<String, String>, imageData:NSData) -> (URLRequestConvertible, NSData) {
         // create url request to send
         let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        mutableURLRequest.setValue("Use-Your-Own-Key", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+        mutableURLRequest.setValue("Please-Use-Your-Own-Key", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
         mutableURLRequest.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
         
         // create upload data to send
