@@ -20,11 +20,7 @@ Choose or take a photo of your face, the app will tell you your emotion.
 
 ## Preview:
 
-<div style="width=300;"><img src = "http://7xle3b.com1.z0.glb.clouddn.com/Simulator%20Screen%20Shot%202015年12月6日%20下午8.10.08.png"></div>
-
-<div style="width=300;"><img  src = "http://7xle3b.com1.z0.glb.clouddn.com/emotionNoteFaceEmotion3.jpg"></div>
-
-<img src="http://7xle3b.com1.z0.glb.clouddn.com/emotionNoteFaceEmotion4.jpg">
+<img src="/imgs/Desktop HD.png" align="left" height="400px">
 
 **Please use your own [Key](https://www.projectoxford.ai/#) to upload image request.**
       
