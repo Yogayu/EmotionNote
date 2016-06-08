@@ -29,7 +29,7 @@ import Foundation
 */
 public protocol ResponseSerializer {
     /// The type of serialized object to be created by this `ResponseSerializer`.
-    typealias SerializedObject
+    associatedtype SerializedObject
 
     /**
         A closure used by response handlers that takes a request, response, and data and returns a result.

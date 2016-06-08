@@ -23,14 +23,15 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var howDoUTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
-    
     @IBOutlet weak var selectImgView: UIView!
+    @IBOutlet weak var textStackView: UIStackView!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var finishView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         contentTextField.delegate = self
-        //contentTextField.becomeFirstResponder()
         
         if let note = note {
             navigationItem.title = "My emotion"
@@ -38,18 +39,23 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
             resultTextView.text = note.emotion
             emotionView.image = note.emotionPhoto
             time = note.time
-            //debug
+            /*debug
             if let noteimage:UIImage = note.emotionPhoto {
                 ENService.loadImgInfo(noteimage) { (JSON) -> () in
                     self.configureWithEmotion(JSON)}
             }
-            
+            */
         }
+        setupUI()
         resultTextviewStyle()
-       
         hideHowDoYouFeelIfNeeded()
         checkEmptyNoteContent()
     }
+    
+    func setupUI() {
+        finishView.hidden = true
+    }
+    
     func resultTextviewStyle(){
         resultTextView.font = UIFont(name: "Avenir Next", size: 18)
         resultTextView.textColor = UIColor.whiteColor()
@@ -70,45 +76,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         
     }
     
-    // MARK:
-    func textViewDidBeginEditing(textView: UITextView) {
-        // TODO: Hide the placeHolder
-        checkEmptyNoteContent()
-        howDoUTextField.hidden = true
-        
-        scrollView.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
-    }
-    func textViewDidChange(textView: UITextView) {
-        checkEmptyNoteContent()
-    }
-    func textViewDidEndEditing(textView: UITextView) {
-        howDoUTextField.hidden = true
-    }
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    @IBAction func BgButttondidTouched(sender: AnyObject) {
         contentTextField.resignFirstResponder()
+        finishView.hidden = true
+        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
     }
-    
-    // MARK: UIImagePickerControllerDelegate
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        // Dismiss the picker if the user canceled.
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        
-        emotionView.image = selectedImage
-        resultTextView.text = "I am tring to feel your emotion, please wait~ "
-        
-        resultTextviewStyle()
-        
-        ENService.loadImgInfo(emotionView.image!) { (JSON) -> () in
-            self.configureWithEmotion(JSON)
-        }
-        
-        dismissViewControllerAnimated(true, completion: nil)
-   }
     
     // MARK: select Image
     @IBAction func selectImage(sender: UITapGestureRecognizer){
@@ -155,11 +127,82 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         
         self.presentViewController(chooseAWay, animated: true, completion: nil)
     }
+    // MARK: Cancel
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        let isPresentingInAddMealMode = presentingViewController is UINavigationController
+        
+        if isPresentingInAddMealMode {
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            navigationController!.popViewControllerAnimated(true)
+        }
+    }
+    
+    // MARK: Save note
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if saveButton === sender {
+            
+            let content = contentTextField.text ?? ""
+            let photo = emotionView.image
+            let emotion = resultTextView.text ?? ""
+            if time == ""{
+                let now = NSDate()
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "yy-MM-dd"
+                time = dateFormatter.stringFromDate(now)
+            }
+            note = Note(content: content, emotion: emotion, emotionPhoto: photo, time: time)
+        }
+    }
+    
+    // MARK:
+    func textViewDidBeginEditing(textView: UITextView) {
+        // TODO: Hide the placeHolder
+        checkEmptyNoteContent()
+        howDoUTextField.hidden = true
+        finishView.hidden = false
+        scrollView.setContentOffset(CGPoint(x: 0, y: 240), animated: true)
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        checkEmptyNoteContent()
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        howDoUTextField.hidden = true
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("touched")
+        contentTextField.resignFirstResponder()
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    func imagePickerControllerDidCancel(picker: UIImagePickerController){
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        emotionView.image = selectedImage
+        resultTextView.text = "I am tring to feel your emotion, please wait~ "
+        
+        resultTextviewStyle()
+        
+        ENService.loadImgInfo(emotionView.image!) { (JSON) -> () in
+            self.configureWithEmotion(JSON)
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     // MARK: Check camera
     func isCameraAvailable() -> Bool{
         return UIImagePickerController.isSourceTypeAvailable(.Camera)
     }
+    
     func cameraSupportsMedia(mediaType: String,
             sourceType: UIImagePickerControllerSourceType) -> Bool{
             let availableMediaTypes = UIImagePickerController.availableMediaTypesForSourceType(sourceType)!
@@ -171,35 +214,9 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
     func doesCameraSupportShootingVideos() -> Bool{
             return cameraSupportsMedia(kUTTypeMovie as NSString as String, sourceType: .Camera)
     }
+    
     func doesCameraSupportTakingPhotos() -> Bool{
             return cameraSupportsMedia(kUTTypeImage as NSString as String, sourceType: .Camera)
-    }
-    
-    // MARK: Cancel
-    @IBAction func cancel(sender: UIBarButtonItem) {
-        let isPresentingInAddMealMode = presentingViewController is UINavigationController
-        
-        if isPresentingInAddMealMode {
-            dismissViewControllerAnimated(true, completion: nil)
-        } else {
-            navigationController!.popViewControllerAnimated(true)
-        }
-    }
-    // MARK: Save note
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if saveButton === sender {
-            
-            let content = contentTextField.text ?? ""
-            let photo = emotionView.image
-            let emotion = resultTextView.text ?? ""
-            if time == ""{
-            let now = NSDate()
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yy-MM-dd"
-            time = dateFormatter.stringFromDate(now)
-            }
-            note = Note(content: content, emotion: emotion, emotionPhoto: photo, time: time)
-        }
     }
     
     func checkEmptyNoteContent(){
@@ -227,7 +244,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         // Chenk if there has any face
         if jsonNum > 0 {
             if let hasFace = json[0]["faceRectangle"]["top"].number{
-                /*
+                /* debug
                 let faceRectangleTop = Double(json[0]["faceRectangle"]["top"].number!)
                 let faceRectangleLeft = Double(json[0]["faceRectangle"]["left"].number!)
                 let faceRectangleWidth = Double(json[0]["faceRectangle"]["width"].number!)
@@ -241,7 +258,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
                 let neutral = Double(json[0]["scores"]["neutral"].number!)
                 let sadness = Double(json[0]["scores"]["sadness"].number!)
                 let surprise = Double(json[0]["scores"]["surprise"].number!)
-                
+    
                 var result = ""
                 var origArray:[String] = ["angry","contempt","disgust",
                     "fear","happy","neutral","sad","surprise"]
@@ -316,6 +333,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         }
         return sentences
     }
+    
     func showSedEmotion(let emo:String)->String{
         var sentences:String = ""
         let number = randomIn(min: 1, max: 5)

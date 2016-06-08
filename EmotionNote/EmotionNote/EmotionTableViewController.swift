@@ -30,7 +30,6 @@ class EmotionTableViewController: UITableViewController {
         if let savedNotes = loadNotes() {
             notes += savedNotes
         } else {
-            // Load the sample data.
             loadSampleNotes()
         }
     }
@@ -38,14 +37,9 @@ class EmotionTableViewController: UITableViewController {
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
     }
+    
     func loadSampleNotes() {
-        /*
-        let photo1 = UIImage(named: "face1")!
-        let note1 = Note(content: "What a wonderful day! Having a nice meal with my friends.", emotion: "How happy you are now!\nAnd you feel a little neutral.", emotionPhoto: photo1, time: "15-12-06")!
-        
-        let photo2 = UIImage(named: "face2")!
-        let note2 = Note(content: "The ocean is peace and the wind is soft. I want to remember this moment.\nTruly feeling my happiness.\nSomeday I wll come back.", emotion:"Do you enjoy your happinedd emotion? And you feel a little neutral.",emotionPhoto: photo2, time: "15-12-06")!
-        */
+       
         let photo3 = UIImage(named: "face3")!
         let note3 = Note(content: "Where's is my mom? I couldn't find her anywhere. Why life is so annoying? Oh...",emotion: "It seems that you are angry.\nAnd you feel a little neutral.", emotionPhoto: photo3, time: "15-12-05")!
         
@@ -64,13 +58,13 @@ class EmotionTableViewController: UITableViewController {
         let photo8 = UIImage(named: "face8")!
         let note8 = Note(content: "Power is everything.", emotion: "I know you are in a neutral mood.\nAnd you feel a little sad.", emotionPhoto: photo8, time: "15-12-03")!
         
-        let photo9 = UIImage(named: "face9")!
-        let note9 = Note(content: "My dragon，why you take me there? I am the queen. I belong to somewehere else.", emotion:"I know you are in a neutral mood.\nAnd you feel a little sad. Dragon's mother~",emotionPhoto: photo9, time: "15-12-02")!
+        let photo2 = UIImage(named: "face9")!
+        let note2 = Note(content: "My dragon，why you take me there? I am the queen. I belong to somewehere else.", emotion:"I know you are in a neutral mood.\nAnd you feel a little sad. Drasgon's mother~",emotionPhoto: photo2, time: "15-12-02")!
         
-        let photo10 = UIImage(named: "face10")!
-        let note10 = Note(content: "See you at the star~",emotion: "You must feel very happy.\n", emotionPhoto: photo10, time: "15-12-01")!
+        let photo1 = UIImage(named: "face10")!
+        let note1 = Note(content: "See you at the star~",emotion: "You must feel very happy.\n", emotionPhoto: photo1, time: "15-12-01")!
         
-        notes += [note3,note4,note5,note6,note7,note8,note9,note10]
+        notes += [note3,note4,note5,note6,note7,note8,note1,note2]
         
     }
     
@@ -102,6 +96,7 @@ class EmotionTableViewController: UITableViewController {
         cell.timeLabel.text = note.time
         return cell
     }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -112,6 +107,7 @@ class EmotionTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    
     // MARK: Unwind
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? EmotionViewController, note = sourceViewController.note {

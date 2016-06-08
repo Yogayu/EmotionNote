@@ -11,9 +11,8 @@
 		9A1CADCF1C1170C6008A1AAE /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADCE1C1170C5008A1AAE /* SwiftyJSON.swift */; };
 		9A1CADD71C11710F008A1AAE /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1CADD31C11710F008A1AAE /* DataManager.swift */; };
 		9A1CADD81C11710F008A1AAE /* Face.json in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CADD41C11710F008A1AAE /* Face.json */; };
-		9A1CADED1C117174008A1AAE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; };
+		9A1CADED1C117174008A1AAE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		9A1CADEE1C117174008A1AAE /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A1CADE41C11715A008A1AAE /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */ = {isa = PBXBuildFile; fileRef = 9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */; };
 		9A2D9BA71C0DED0000DB9D5F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */; };
 		9A2D9BA91C0DED0000DB9D5F /* EmotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */; };
 		9A2D9BAC1C0DED0000DB9D5F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A2D9BAA1C0DED0000DB9D5F /* Main.storyboard */; };
@@ -107,7 +106,6 @@
 		9A1CADD31C11710F008A1AAE /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		9A1CADD41C11710F008A1AAE /* Face.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Face.json; sourceTree = "<group>"; };
 		9A1CADDB1C11715A008A1AAE /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = "Alamofire-swift-2.0/Alamofire.xcodeproj"; sourceTree = "<group>"; };
-		9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TPKeyboardAvoiding; sourceTree = "<group>"; };
 		9A2D9BA31C0DED0000DB9D5F /* EmotionNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmotionNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A2D9BA61C0DED0000DB9D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A2D9BA81C0DED0000DB9D5F /* EmotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmotionViewController.swift; sourceTree = "<group>"; };
@@ -192,7 +190,6 @@
 			children = (
 				9A3460781CC2659B00AB17E8 /* Helpers */,
 				9A3460731CC263AF00AB17E8 /* Application */,
-				9A1CAE081C11B8B3008A1AAE /* TPKeyboardAvoiding */,
 				9ADCE16E1CA125AC003E6820 /* Model */,
 				9ADCE16D1CA1259B003E6820 /* Cell */,
 				9ADCE1681CA12582003E6820 /* Controller */,
@@ -431,7 +428,6 @@
 			files = (
 				9A2D9BB41C0DED0000DB9D5F /* LaunchScreen.storyboard in Resources */,
 				9A2D9BB11C0DED0000DB9D5F /* Assets.xcassets in Resources */,
-				9A1CAE091C11B8B3008A1AAE /* TPKeyboardAvoiding in Resources */,
 				9A1CADD81C11710F008A1AAE /* Face.json in Resources */,
 				9A2D9BAC1C0DED0000DB9D5F /* Main.storyboard in Resources */,
 			);
