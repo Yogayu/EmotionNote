@@ -1,8 +1,10 @@
 # EmotionNote
-This is a notebook that can feel your emotion!Making you know better about yourself. 
-Choose or take a photo of your face, the app will tell you your emotion.
+This is a notebook which can feel your emotion! 
+Making you know better about yourself. 
 
-## features:
+Choose or take a photo of your face, the app will tell you how you fell.
+
+## Features:
 - Totally written in swift 2.0.
 - Simple and clean UI.
 - Using Microsoft project Oxford emotion API.
