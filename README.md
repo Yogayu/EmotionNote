@@ -20,7 +20,7 @@ Choose or take a photo of your face, the app will tell you your emotion.
 
 ## Preview:
 
-<img src="/imgs/Desktop HD.png" align="left" height="400px">
+<img src="/imgs/Desktop HD.png">
 
 **Please use your own [Key](https://www.projectoxford.ai/#) to upload image request.**
       
