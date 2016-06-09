@@ -16,6 +16,8 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
     var note: Note?
     var emotion:JSON?
     var time:String = ""
+    var contentOffset = CGPoint()
+    var keyboardSize:CGSize = CGSizeMake(0, 0)
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emotionView: UIImageView!
@@ -27,6 +29,9 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
     @IBOutlet weak var textStackView: UIStackView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var finishView: UIView!
+    
+    
+    @IBOutlet weak var finishBtnToButton: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,11 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
             }
             */
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidShow(_:)), name:UIKeyboardWillChangeFrameNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIKeyboardDidHideNotification, object: nil)
+        
         setupUI()
         resultTextviewStyle()
         hideHowDoYouFeelIfNeeded()
@@ -62,27 +72,12 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         resultTextView.textAlignment = NSTextAlignment.Center
     }
     
-    // MARK: Make the content show
-    override func viewWillAppear(animated: Bool)  {
-        super.viewWillAppear(animated)
-        
-    }
-    override func viewWillDisappear(animated: Bool)  {
-        super.viewWillDisappear(animated)
-        
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
     
     @IBAction func BgButttondidTouched(sender: AnyObject) {
         contentTextField.resignFirstResponder()
-        finishView.hidden = true
-        scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        scrollView.setContentOffset(contentOffset, animated: true)
     }
     
-    // MARK: select Image
     @IBAction func selectImage(sender: UITapGestureRecognizer){
         // Hide the keyboard.
         contentTextField.resignFirstResponder()
@@ -127,7 +122,7 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         
         self.presentViewController(chooseAWay, animated: true, completion: nil)
     }
-    // MARK: Cancel
+    
     @IBAction func cancel(sender: UIBarButtonItem) {
         let isPresentingInAddMealMode = presentingViewController is UINavigationController
         
@@ -155,12 +150,46 @@ class EmotionViewController: UIViewController,UITextViewDelegate,UITextFieldDele
         }
     }
     
-    // MARK:
+    func keyboardDidShow(notification: NSNotification) {
+        
+        finishView.hidden = false
+        
+        if let rectValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            keyboardSize = rectValue.CGRectValue().size
+            updateTextViewSizeForKeyboardHeight(keyboardSize.height)
+            print("keyboardSize.height:\(keyboardSize.height)")
+        }
+    }
+    
+    func keyboardDidHide(notification: NSNotification) {
+        updateTextViewSizeForKeyboardHeight(0)
+//        finishView.hidden = true
+        UIView.animateWithDuration(0.5) {
+            [weak self] in
+            self?.finishView.hidden = true
+        }
+    }
+    
+    func updateTextViewSizeForKeyboardHeight(keyboardHeight: CGFloat) {
+        
+        let newKeyboardHeight = keyboardHeight
+        
+        UIView.animateWithDuration(0.5, delay: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations:
+            { [weak self] in
+                
+                self?.finishBtnToButton.constant = newKeyboardHeight
+                self?.view.layoutIfNeeded()
+                
+            }, completion: nil)
+    }
+    
+    
+    
     func textViewDidBeginEditing(textView: UITextView) {
         // TODO: Hide the placeHolder
         checkEmptyNoteContent()
         howDoUTextField.hidden = true
-        finishView.hidden = false
+        contentOffset = scrollView.contentOffset
         scrollView.setContentOffset(CGPoint(x: 0, y: 240), animated: true)
     }
     

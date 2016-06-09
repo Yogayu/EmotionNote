@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmotionNote/EmotionViewController.swift"
-            timestampString = "487095957.184336"
+            timestampString = "487177806.990339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "configureWithEmotion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmotionNote/EmotionViewController.swift"
-            timestampString = "487095957.184336"
+            timestampString = "487177806.990339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "configureWithEmotion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmotionNote/EmotionViewController.swift"
-            timestampString = "487095957.184336"
+            timestampString = "487177806.990339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "304"
+            endingLineNumber = "304"
             landmarkName = "configureWithEmotion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmotionNote/EmotionViewController.swift"
-            timestampString = "487095957.184336"
+            timestampString = "487177806.990339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "314"
+            endingLineNumber = "314"
             landmarkName = "configureWithEmotion(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EmotionNote/EmotionViewController.swift"
-            timestampString = "487095957.184336"
+            timestampString = "487177806.990339"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "configureWithEmotion(_:)"
             landmarkType = "5">
          </BreakpointContent>

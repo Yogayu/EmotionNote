@@ -43,7 +43,9 @@ struct ENService {
         // create url request to send
         let mutableURLRequest = NSMutableURLRequest(URL: NSURL(string: urlString)!)
         mutableURLRequest.HTTPMethod = Alamofire.Method.POST.rawValue
-        mutableURLRequest.setValue("Please-Use-Your-Own-Key", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
+       
+        // please use your own key to upload images
+        mutableURLRequest.setValue("please-use-your-own-key", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
         mutableURLRequest.setValue("application/octet-stream", forHTTPHeaderField: "Content-Type")
         
         // create upload data to send

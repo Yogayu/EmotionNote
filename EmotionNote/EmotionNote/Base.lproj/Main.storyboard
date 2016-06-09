@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OPh-ag-3MG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OPh-ag-3MG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -28,7 +28,7 @@
                                         <rect key="frame" x="0.0" y="-64" width="414" height="628"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bq-k7-t5j">
-                                                <rect key="frame" x="0.0" y="649" width="414" height="40"/>
+                                                <rect key="frame" x="0.0" y="585" width="414" height="40"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72z-NH-wnz" userLabel="bgButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
@@ -39,7 +39,7 @@
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.94844931364059448" green="0.95011502504348755" blue="0.96403354406356812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="72z-NH-wnz" firstAttribute="leading" secondItem="7bq-k7-t5j" secondAttribute="leading" id="orf-Qa-9tX"/>
                                                     <constraint firstAttribute="height" constant="40" id="sMJ-VW-z4h"/>
@@ -184,6 +184,7 @@
                                         <exclude reference="zfC-Qc-up1"/>
                                         <exclude reference="eQt-9v-XNz"/>
                                         <exclude reference="a7S-Rs-tAr"/>
+                                        <exclude reference="SGo-CM-TWU"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -191,6 +192,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="5eq-rP-0am" firstAttribute="top" secondItem="7bq-k7-t5j" secondAttribute="bottom" constant="3" id="1rN-1P-Aq3"/>
                             <constraint firstItem="VvP-Sp-i6W" firstAttribute="top" secondItem="f7a-7m-k00" secondAttribute="bottom" id="4yU-S8-NqB"/>
                             <constraint firstItem="mC4-JY-oAA" firstAttribute="leading" secondItem="r24-bW-50r" secondAttribute="leadingMargin" constant="-20" id="Crn-k2-LhZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VvP-Sp-i6W" secondAttribute="trailing" constant="-20" id="KdN-Ip-BUH"/>
@@ -222,6 +224,7 @@
                     <connections>
                         <outlet property="contentTextField" destination="B43-xt-G8E" id="CiN-ma-2Qp"/>
                         <outlet property="emotionView" destination="vWv-tT-nBi" id="CxQ-kN-w0d"/>
+                        <outlet property="finishBtnToButton" destination="1rN-1P-Aq3" id="Dfs-Av-mVV"/>
                         <outlet property="finishView" destination="7bq-k7-t5j" id="NwS-nz-hCV"/>
                         <outlet property="howDoUTextField" destination="o5e-Q2-VRg" id="EPq-KS-7J6"/>
                         <outlet property="resultTextView" destination="JOX-Ov-yAe" id="Q9H-hP-139"/>

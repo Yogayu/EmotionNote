@@ -70,42 +70,6 @@ class EmotionTableViewController: UITableViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notes.count
-    }
-    
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // Table view cells are reused and should be dequeued using a cell identifier.
-        let cellIdentifier = "EmotionTableViewCell"
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EmotionTableViewCell
-        // Fetches the appropriate meal for the data source layout.
-        let note =  notes[indexPath.row]
-        cell.contentLabel.text = note.content
-        cell.emotionView.image = note.emotionPhoto
-        cell.timeLabel.text = note.time
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            notes.removeAtIndex(indexPath.row)
-            saveNotes()
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
     }
     
     // MARK: Unwind
@@ -153,5 +117,45 @@ class EmotionTableViewController: UITableViewController {
     
     func loadNotes() -> [Note]? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(Note.ArchiveURL.path!) as? [Note]
+    }
+}
+
+extension EmotionTableViewController {
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return notes.count
+    }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "EmotionTableViewCell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EmotionTableViewCell
+        // Fetches the appropriate meal for the data source layout.
+        let note =  notes[indexPath.row]
+        cell.contentLabel.text = note.content
+        cell.emotionView.image = note.emotionPhoto
+        cell.timeLabel.text = note.time
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            notes.removeAtIndex(indexPath.row)
+            saveNotes()
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
     }
 }
