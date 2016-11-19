@@ -1,0 +1,6 @@
+[submodule "Alamofire"]
+	path = Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
+[submodule "EmotionNote/Alamofire"]
+	path = EmotionNote/Alamofire
+	url = https://github.com/Alamofire/Alamofire.git
